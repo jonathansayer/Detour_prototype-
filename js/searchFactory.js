@@ -10,7 +10,7 @@ parkSearch.factory('Search', ['$http', function($http) {
           'location': '51.5191120,-0.0745060',
           'radius': '1000',
           'types': 'park',
-          'key': 'AIzaSyCz0h225lT29MvHExkATOi1q-s6eKTtmtQ'
+          'key': ''
         }
       });
     }
