@@ -14,6 +14,12 @@
   <body ng-controller="ParkSearchController as Ctrl">
     <div>
       <button class="btn" ng-click="Ctrl.doSearch()">Search</button>
+     <select ng-model="Ctrl.searchTerm">
+      <option value="restaurant">Restaurants</option>
+      <option value="museum">Museums</option>
+      <option value="park">Car Parks</option>
+      <option value="church">Church</option>
+    </select>
       <ul class="list group" ng-repeat="park in Ctrl.searchResult.results">
         <li>
           {{park.geometry.location.lat}}
