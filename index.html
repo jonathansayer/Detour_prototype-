@@ -26,32 +26,26 @@
       <option value="church">Church</option>
     </select>
 
-    <!-- <iframe ng-init='city = London, country = UK, attraction = Big+Ben'
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCz0h225lT29MvHExkATOi1q-s6eKTtmtQ&q=Big+Ben," + {{city}} + "+" + {country} allowfullscreen>
-    </iframe> -->
-    <div id="map"></div>
+ 
+        <div id="map"></div>
     <script type="text/javascript">
-
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 51.5191120, lng: -0.0745060},
-    zoom: 15
-  });
-}
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 51.5191120, lng: -0.0745060},
+        zoom: 15
+      });
+    }
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=APIKEY&callback=initMap">
     </script>
 
 
-      <ul class="list group" ng-repeat="park in Ctrl.searchResult.results">
+      <ul class="list group" ng-repeat="location in Ctrl.searchResult.results">
         <li>
-          {{park.geometry.location.lat}}
-          {{park.geometry.location.lng}}
+          {{location.geometry.location.lat}}
+          {{location.geometry.location.lng}}
         </li>
       </ul>
     </div>
