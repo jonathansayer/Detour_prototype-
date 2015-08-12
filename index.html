@@ -2,14 +2,19 @@
 <html lang="en" ng-app="ParkSearch">
 
   <head>
-     <meta charset="utf-8">
-     <title>Github user search</title>
-     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-     <script src="bower_components/jquery/dist/jquery.js"></script>
-     <script src="bower_components/angular/angular.js"></script>
-     <script src="bower_components/angular-resource/angular-resource.js"></script>
-     <script src="js/app.js"></script>
-   </head>
+    <meta charset="utf-8">
+    <title>Github user search</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+
+    <style type="text/css">
+      html, body { height: 400px; margin: 0; padding: 0; }
+      #map { height: 400px; }
+    </style>
+  </head>
 
   <body ng-controller="ParkSearchController as Ctrl">
     <div>
@@ -21,12 +26,26 @@
       <option value="church">Church</option>
     </select>
 
-    <iframe ng-init='city = London, country = UK, attraction = Big+Ben'
+    <!-- <iframe ng-init='city = London, country = UK, attraction = Big+Ben'
       width="600"
       height="450"
       frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=APIKEY&q=Big+Ben," + {{city}} + "+" + {country} allowfullscreen>
-    </iframe>
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCz0h225lT29MvHExkATOi1q-s6eKTtmtQ&q=Big+Ben," + {{city}} + "+" + {country} allowfullscreen>
+    </iframe> -->
+    <div id="map"></div>
+    <script type="text/javascript">
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 51.5191120, lng: -0.0745060},
+    zoom: 15
+  });
+}
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=APIKEY&callback=initMap">
+    </script>
 
 
       <ul class="list group" ng-repeat="park in Ctrl.searchResult.results">
